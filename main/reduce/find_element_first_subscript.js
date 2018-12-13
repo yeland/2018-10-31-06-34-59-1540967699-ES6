@@ -1,8 +1,9 @@
 'use strict';
 
-function calculate_elements_sum(collection, element) {
+function find_element_first_subscript(collection, element) {
+  return collection.indexOf(element);
   //在这里写入代码
 }
 
-module.exports = calculate_elements_sum;
+module.exports = find_element_first_subscript;
 

@@ -1,5 +1,11 @@
 'use strict';
-function one_add_next_multiply_three(collection){
-  return [12,24,36,48,60,72,84,96,108,120];
+function one_add_next_multiply_three(collection) {
+  var result = collection.map(function (item, index, self) {
+    if (index < self.length - 1) {
+      return 3*(item+self[index+1]);
+    }
+  })
+  result.pop();
+  return result;
 }
 module.exports = one_add_next_multiply_three;
