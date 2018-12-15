@@ -10,7 +10,6 @@ function grouping_count(collection) {
     return allEle;
   }, {});
   return group;
-  //在这里写入代码
 }
 
 module.exports = grouping_count;

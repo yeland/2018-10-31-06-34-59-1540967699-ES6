@@ -3,13 +3,10 @@
 function get_letter_interval_2(number_a, number_b) {
   var letter_2 = get_integer_interval(number_a,number_b);
   return number_map_to_word_over_26(letter_2);
-  //在这里写入代码
 }
 function get_integer_interval(number_a, number_b) {
   var collection = new Array();
-  if (number_a == number_b) {
-    collection.push(number_a);
-  } else if (number_a < number_b) {
+  if (number_a < number_b) {
     for(let i=number_a;i<=number_b;i++) {
       collection.push(i);
     }
@@ -20,17 +17,18 @@ function get_integer_interval(number_a, number_b) {
   }
   return collection;
 }
-var number_map_to_word_over_26 = function (collection) {
+ function number_map_to_word_over_26(collection) {
   var word = collection.map(function (item) {
     if (item <= 26) {
-      return String.fromCharCode(0x60 + item);
-    } else if(!(item%26)) {
-      return String.fromCharCode(0x60 + item/26-1)+String.fromCharCode(0x60 + 26);
+      return String.fromCharCode(96 + item);
     } else {
-      return String.fromCharCode(0x60 + Math.floor(item/26))+String.fromCharCode(0x60 + item%26);
+      let first = 96 + Math.floor((item-1)/26);
+      let second = 97 + (item-1)%26;
+      return String.fromCharCode(first,second);
     }
   })
   return word;
 };
+
 module.exports = get_letter_interval_2;
 

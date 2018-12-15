@@ -3,7 +3,6 @@
 function get_integer_interval_2(number_a, number_b) {
   var interval = get_integer_interval(number_a, number_b);  
   return collect_all_even(interval);;
-  //在这里写入代码
 }
 function get_integer_interval(number_a, number_b) {
   var collection = new Array();

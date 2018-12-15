@@ -1,7 +1,7 @@
 function count_same_elements(collection) {
   var same_object = grouping_count(collection);
   var arr = new Array();
-  for(let ele in same_object){
+  for (let ele in same_object) {
     let single = new Object();
     single.key = ele;
     single.count = same_object[ele];
@@ -11,7 +11,7 @@ function count_same_elements(collection) {
 }
 function grouping_count(collection) {
   var group = collection.reduce(function (allEle, ele) {
-    var object_a = compute_count(ele); 
+    var object_a = compute_count(ele);
     if (object_a.key in allEle) {
       allEle[object_a.key] += object_a.count;
     } else {
@@ -27,7 +27,7 @@ function compute_count(ele) {
     single.key = ele;
     single.count = 1;
   } else {
-    single.key = ele.slice(0,1);
+    single.key = ele.slice(0, 1);
     single.count = parseInt(ele.slice(2));
   }
   return single;

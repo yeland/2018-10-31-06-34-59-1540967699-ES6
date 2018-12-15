@@ -5,14 +5,11 @@ function double_to_one(collection) {
     return array_1.concat(array_2);
   },[])
   return choose_no_repeat_number(one);
-  //在这里写入代码
 }
 function choose_no_repeat_number(collection) {
-  var number = collection.filter(choose);
-  return number;
-  //在这里写入代码
+  return collection.filter(function choose(element,index,self) {
+    return self.indexOf(element) === index;
+  });
 }
-function choose(element,index,self) {
-  return self.indexOf(element) === index;
-}
+
 module.exports = double_to_one;
