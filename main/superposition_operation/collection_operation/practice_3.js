@@ -5,17 +5,17 @@ function hybrid_operation_to_uneven(collection) {
 }
 function choose_odd(collection) {
   return collection.filter(function (element) {
-    return element%2;
+    return element % 2;
   });
 }
-function map_to_three_multiples_add_five (collections){
+function map_to_three_multiples_add_five(collections) {
   return collections.map(function (item) {
     return (item * 3 + 5);
   })
 }
 function calculate_elements_sum(collection) {
   return collection.reduce(function (preEle, ele) {
-    return preEle+ele;
+    return preEle + ele;
   });
 }
 module.exports = hybrid_operation_to_uneven;

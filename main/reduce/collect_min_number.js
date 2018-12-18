@@ -2,7 +2,7 @@
 
 function collect_min_number(collection) {
   return collection.reduce(function (preEle, ele) {
-    return (preEle<ele)?preEle:ele;
+    return (preEle < ele) ? preEle : ele;
   });
 }
 

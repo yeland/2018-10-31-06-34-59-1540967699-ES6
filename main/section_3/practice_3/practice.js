@@ -1,19 +1,18 @@
 function create_updated_collection(collection_a, object_b) {
   var collection_b = object_b.value;
   var collection = count_same_elements(collection_a);
-  var result = collection.map(function (element) {
+  return collection.map(function (element) {
     if (collection_b.includes(element.key)) {
       element.count -= Math.floor(element.count / 3);
     }
     return element;
-  })
-  return result;
+  }) 
 }
 function count_same_elements(collection) {
   var same_object = grouping_count(collection);
-  var arr = new Array();
+  var arr = [];
   for (let ele in same_object) {
-    let single = new Object();
+    let single = {};
     single.key = ele;
     single.count = same_object[ele];
     arr.push(single);

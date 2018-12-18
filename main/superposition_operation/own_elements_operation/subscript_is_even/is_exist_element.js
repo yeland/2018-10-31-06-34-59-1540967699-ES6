@@ -1,5 +1,5 @@
 'use strict';
-var is_exist_element = function(collection,element){
+var is_exist_element = function (collection, element) {
   var collection_even = choose_even(collection);
   return collection_even.includes(element);
 };

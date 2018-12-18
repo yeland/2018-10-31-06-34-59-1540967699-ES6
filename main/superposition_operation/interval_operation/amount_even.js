@@ -5,12 +5,12 @@ function amount_even(collection) {
 }
 function choose_even(collection) {
   return collection.filter(function (element) {
-    return element%2 == 0;
+    return element % 2 == 0;
   });
 }
 function calculate_elements_sum(collection) {
   return collection.reduce(function (preEle, ele) {
-    return preEle+ele;
+    return preEle + ele;
   });
 }
 

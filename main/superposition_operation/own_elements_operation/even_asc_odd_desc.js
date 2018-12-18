@@ -1,5 +1,5 @@
 'use strict';
-var even_asc_odd_desc = function(collection){
+var even_asc_odd_desc = function (collection) {
   var even = choose_even(collection);
   var odd = choose_odd(collection);
   var even_asc = even.sort(function (val1, val2) {
@@ -12,12 +12,12 @@ var even_asc_odd_desc = function(collection){
 };
 function choose_even(collection) {
   return collection.filter(function (element) {
-    return element%2 == 0;
+    return element % 2 == 0;
   });
 }
 function choose_odd(collection) {
   return collection.filter(function (element) {
-    return element%2;
+    return element % 2;
   });
 }
 

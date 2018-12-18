@@ -1,8 +1,8 @@
 function count_same_elements(collection) {
   var same_object = grouping_count(collection);
-  var arr = new Array();
+  var arr = [];
   for (let ele in same_object) {
-    let single = new Object();
+    let single = {};
     single.key = ele;
     single.count = same_object[ele];
     arr.push(single);
