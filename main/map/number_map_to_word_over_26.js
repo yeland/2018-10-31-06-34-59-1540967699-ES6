@@ -1,6 +1,6 @@
 'use strict';
-var number_map_to_word_over_26 = function (collection) {
-  var word = collection.map(function (item) {
+let number_map_to_word_over_26 = collection => {
+  return collection.map(item => {
     if (item <= 26) {
       return String.fromCharCode(96 + item);
     } else {
@@ -9,7 +9,6 @@ var number_map_to_word_over_26 = function (collection) {
       return String.fromCharCode(first, second);
     }
   })
-  return word;
 };
 
 module.exports = number_map_to_word_over_26;

@@ -1,7 +1,7 @@
 'use strict';
 
-function grouping_count(collection) {
-  var group = collection.reduce(function (allEle, ele) {
+let grouping_count = collection => {
+  return collection.reduce((allEle, ele) => {
     if (ele in allEle) {
       allEle[ele]++;
     } else {
@@ -9,7 +9,6 @@ function grouping_count(collection) {
     }
     return allEle;
   }, {});
-  return group;
 }
 
 module.exports = grouping_count;
