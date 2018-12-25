@@ -1,17 +1,9 @@
 'use strict';
 
-function even_to_letter(collection) {
-  return number_map_to_word(choose_even(collection));
-}
-function choose_even(collection) {
-  return collection.filter(function (element) {
-    return element % 2 == 0;
-  });
-}
+let even_to_letter = collection => number_map_to_word(choose_even(collection));
 
-var number_map_to_word = function (collection) {
-  return collection.map(function (item) {
-    return String.fromCharCode(0x60 + item);
-  })
-};
+let choose_even = collection => collection.filter(element => element % 2 == 0);
+
+let number_map_to_word = collection => collection.map(item => String.fromCharCode(0x60 + item));
+
 module.exports = even_to_letter;

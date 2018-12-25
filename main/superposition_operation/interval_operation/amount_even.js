@@ -1,17 +1,7 @@
 'use strict';
 
-function amount_even(collection) {
-  return calculate_elements_sum(choose_even(collection));
-}
-function choose_even(collection) {
-  return collection.filter(function (element) {
-    return element % 2 == 0;
-  });
-}
-function calculate_elements_sum(collection) {
-  return collection.reduce(function (preEle, ele) {
-    return preEle + ele;
-  });
-}
+let amount_even = collection => calculate_elements_sum(choose_even(collection));
+let choose_even = collection => collection.filter(element => element % 2 == 0);
+let calculate_elements_sum = collection => collection.reduce((preEle, ele) => preEle + ele);
 
 module.exports = amount_even;

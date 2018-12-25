@@ -1,17 +1,9 @@
 'use strict';
 
-function average_uneven(collection) {
-  return compute_average(choose_odd(collection));
-}
-function choose_odd(collection) {
-  return collection.filter(function (element) {
-    return element % 2;
-  });
-}
-function compute_average(collection) {
-  var sum = collection.reduce(function (preEle, ele) {
-    return preEle + ele;
-  });
+let average_uneven = collection => compute_average(choose_odd(collection));
+let choose_odd = collection => collection.filter(element => element % 2);
+let compute_average = collection => {
+  const sum = collection.reduce((preEle, ele) => preEle + ele);
   return Math.round(sum / collection.length);
 }
 

@@ -1,11 +1,6 @@
 'use strict';
-var is_exist_element = function (collection, element) {
-  var collection_even = choose_even(collection);
-  return collection_even.includes(element);
-};
-function choose_even(collection) {
-  return collection.filter(function (element, index, self) {
-    return !(index % 2);
-  });
-}
+
+let is_exist_element = (collection, element) => choose_even(collection).includes(element);
+let choose_even = collection => collection.filter((element, index, self) => !(index % 2));
+
 module.exports = is_exist_element;

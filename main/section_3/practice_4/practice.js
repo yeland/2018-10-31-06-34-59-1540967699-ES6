@@ -1,27 +1,24 @@
-function create_updated_collection(collection_a, object_b) {
-  var collection_b = object_b.value;
-  var collection = count_same_elements(collection_a);
-  return collection.map(function (element) {
+let create_updated_collection = (collection_a, object_b) => {
+  const collection_b = object_b.value;
+  const collection = count_same_elements(collection_a);
+  return collection.map(element => {
     if (collection_b.includes(element.key)) {
       element.count -= Math.floor(element.count / 3);
     }
     return element;
   })
 }
-function count_same_elements(collection) {
-  var same_object = grouping_count(collection);
-  var arr = [];
+let count_same_elements = collection => {
+  const same_object = grouping_count(collection);
+  let arr = [];
   for (let ele in same_object) {
-    let single = {};
-    single.key = ele;
-    single.count = same_object[ele];
-    arr.push(single);
+    arr.push({ key: ele, count: same_object[ele] });
   }
   return arr;
 }
-function grouping_count(collection) {
-  var group = collection.reduce(function (allEle, ele) {
-    var object_a = compute_count(ele);
+let grouping_count = collection => {
+  return collection.reduce((allEle, ele) => {
+    const object_a = compute_count(ele);
     if (object_a.key in allEle) {
       allEle[object_a.key] += object_a.count;
     } else {
@@ -29,17 +26,12 @@ function grouping_count(collection) {
     }
     return allEle;
   }, {});
-  return group;
 }
-function compute_count(ele) {
-  let single = {};
+let compute_count = ele => {
   if (ele.length == 1) {
-    single.key = ele;
-    single.count = 1;
+    return { key: ele, count: 1 };
   } else {
-    single.key = ele.slice(0, 1);
-    single.count = parseInt(ele.slice(2));
+    return { key: ele.slice(0, 1), count: parseInt(ele.slice(2)) };
   }
-  return single;
 }
 module.exports = create_updated_collection;

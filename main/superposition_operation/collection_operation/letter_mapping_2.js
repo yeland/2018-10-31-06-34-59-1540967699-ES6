@@ -1,17 +1,11 @@
 'use strict';
 
-function average_to_letter(collection) {
-  return number_map_to_word(compute_average(collection));
-}
-function compute_average(collection) {
-  var sum = collection.reduce(function (preEle, ele) {
-    return preEle + ele;
-  });
+let average_to_letter = collection => number_map_to_word(compute_average(collection));
+let compute_average = collection => {
+  const sum = collection.reduce((preEle, ele) => preEle + ele);
   return Math.ceil(sum / collection.length);
 }
-function number_map_to_word(collection) {
-  return String.fromCharCode(0x60 + collection);
-};
+let number_map_to_word = number => String.fromCharCode(0x60 + number);
 
 module.exports = average_to_letter;
 

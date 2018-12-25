@@ -1,16 +1,13 @@
-function count_same_elements(collection) {
-  var same_object = grouping_count(collection);
-  var arr = [];
+let count_same_elements = collection => {
+  const same_object = grouping_count(collection);
+  let arr = [];
   for (let ele in same_object) {
-    let single = {};
-    single.key = ele;
-    single.count = same_object[ele];
-    arr.push(single);
+    arr.push({ key: ele, count: same_object[ele] });
   }
   return arr;
 }
-function grouping_count(collection) {
-  var group = collection.reduce(function (allEle, ele) {
+let grouping_count = collection => {
+  return collection.reduce((allEle, ele) => {
     if (ele in allEle) {
       allEle[ele]++;
     } else {
@@ -18,6 +15,6 @@ function grouping_count(collection) {
     }
     return allEle;
   }, {});
-  return group;
 }
+
 module.exports = count_same_elements;

@@ -1,33 +1,21 @@
 'use strict';
-var even_group_calculate_average = function (collection) {
-  var even = choose_even(choose_index_even(collection));
+let even_group_calculate_average = collection => {
+  const even = choose_even(choose_index_even(collection));
   if (!even.length) {
     return [0];
   } else {
     return calculate_average(even);
   }
 };
-function choose_even(collection) {
-  return collection.filter(function (element) {
-    return element % 2 == 0;
-  });
-}
-function choose_index_even(collection) {
-  return collection.filter(function (element, index, self) {
-    return index % 2;
-  });
-}
-function calculate_average(collection) {
-  var group_array = group(collection);
-  return group_array.map(function (element) {
-    return compute_average(element);
-  })
-}
-function group(collection) {
-  var one = choose_length(collection, 10);
-  var two = choose_length(collection, 100);
-  var three = choose_length(collection, 1000);
-  var array = [];
+let choose_even = collection => collection.filter(element => element % 2 == 0);
+let choose_index_even = collection => collection.filter((element, index, self) => index % 2);
+let calculate_average = collection => group(collection).map(element => compute_average(element));
+
+let group = collection => {
+  const one = choose_length(collection, 10);
+  const two = choose_length(collection, 100);
+  const three = choose_length(collection, 1000);
+  let array = [];
   if (one.length) {
     array.push(one);
   }
@@ -39,13 +27,11 @@ function group(collection) {
   }
   return array;
 }
-function choose_length(collection, number) {
-  return collection.filter(function (element) {
-    return element < number && element > number / 10;
-  });
-}
-function compute_average(collection) {
-  var sum = collection.reduce(function (preEle, ele) {
+let choose_length = (collection, number) => collection.filter(element =>
+  element < number && element > number / 10);
+
+let compute_average = collection => {
+  let sum = collection.reduce((preEle, ele) => {
     return preEle + ele;
   });
   return Math.round(sum / collection.length);

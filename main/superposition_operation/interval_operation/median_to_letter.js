@@ -1,22 +1,20 @@
 'use strict';
 
-function median_to_letter(collection) {
-  return number_map_to_word_over_26(compute_median(collection));
-}
-function compute_median(collection) {
-  var mid;
-  collection.sort(function (val1, val2) {
-    return val1 - val2;
-  });
+let median_to_letter = collection => number_map_to_word_over_26(compute_median(collection));
+let compute_median = collection => {
+  collection.sort((val1, val2) => val1 - val2);
   if (collection.length % 2 == 0) {
-    mid = (collection[collection.length / 2 - 1] + collection[collection.length / 2]) / 2;
-  } else {
-    mid = collection[Math.floor(collection.length / 2)];
-  }
-  return Math.ceil(mid);
+    return even_median(collection);
+  } 
+  return odd_median(collection);
 }
+let even_median = collection => {
+  let even = (collection[collection.length / 2 - 1] + collection[collection.length / 2]) / 2;
+  return Math.ceil(even);
+}
+let odd_median = collection => collection[Math.floor(collection.length / 2)];
 
-var number_map_to_word_over_26 = function (item) {
+let number_map_to_word_over_26 = item => {
   if (item <= 26) {
     return String.fromCharCode(96 + item);
   } else {
