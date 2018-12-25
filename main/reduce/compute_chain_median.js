@@ -1,32 +1,18 @@
 'use strict';
 
-function compute_chain_median(collection) {
-  var collection = '1->4->6->2->3->10->9->8->11->20->19->30';
-  var chain = collection.split("->");
-  var chain_number = map_to_number(chain);
+let compute_chain_median = collection => {
+  let chain_number = collection.split("->").map(item => parseInt(item));
   return compute_median(chain_number);
 }
-function map_to_number(collection) {
-  return collection.map(function (item) {
-    return parseInt(item);
-  })
-}
-function compute_median(collection) {
-  var mid;
-  collection.sort(function (val1, val2) {
-    return val1 - val2;
-  });
+let compute_median = collection => {
+  collection.sort((val1, val2) => val1 - val2);
   if (collection.length % 2 == 0) {
     return even_median(collection);
   } else {
     return odd_median(collection);
   }
 }
-function even_median(collection) {
-  return (collection[collection.length / 2 - 1] + collection[collection.length / 2]) / 2;
-}
-function odd_median(collection) {
-  return collection[Math.floor(collection.length / 2)];
-}
+let even_median = collection => (collection[collection.length / 2 - 1] + collection[collection.length / 2]) / 2;
+let odd_median = collection => collection[Math.floor(collection.length / 2)];
 
 module.exports = compute_chain_median;

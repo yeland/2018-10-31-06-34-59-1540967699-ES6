@@ -1,7 +1,7 @@
 'use strict';
 
-function spilt_to_zero(number, interval) {
-  var collection = [];
+let spilt_to_zero = (number, interval) => {
+  let collection = [];
   let i = number;
   do {
     collection.push(i);

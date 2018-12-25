@@ -1,9 +1,7 @@
 'use strict';
 
-function find_last_even(collection) {
-  var even = collection.filter(function (element) {
-    return element % 2 == 0;
-  });
+let find_last_even = collection => {
+  let even = collection.filter(element => element % 2 == 0);
   return even[even.length - 1];
 }
 

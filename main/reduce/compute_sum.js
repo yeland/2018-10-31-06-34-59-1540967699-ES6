@@ -1,10 +1,6 @@
 'use strict';
 
-function calculate_elements_sum(collection) {
-  return collection.reduce(function (preEle, ele) {
-    return preEle + ele;
-  });
-}
+let calculate_elements_sum = collection => collection.reduce((preEle, ele) => preEle + ele);
 
 module.exports = calculate_elements_sum;
 
